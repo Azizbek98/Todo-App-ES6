@@ -8,7 +8,7 @@
 }
 body{
     background: rgb(193, 62, 62);
-    background: linear-gradient(139deg, rgba(193,62,62,1) 0%, rgba(230, 179, 50, 1) 100%);
+    background: linear-gradient(132deg,#6A82FB 0,#00f260 100%);
     overflow-x: hidden;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,4 +44,13 @@ body{
     height: 2px;
     background-color: white;
     transition: .5s;
+}
+#todos > .heading > h1:hover::before{
+    width: 80%;
+}
+#todos > .todo-input-container{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
 }
