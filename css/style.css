@@ -79,3 +79,48 @@ body{
     right: 40px;
     background-color: rgb(153, 235, 76);
 }
+#todos > .todo-list-container{
+    list-style: none;
+    margin: 10px 0 0;
+}
+#todos > .todo-list-container .todo-list{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+#todos > .todo-list-container .todo-list .todo-item{
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+}
+#todos > .todo-list-container .todo-list .button{
+    position: absolute;
+    right: 0;
+}
+#todos > .todo-list-container .todo-list .button button{
+    width: 40px;
+    height: 50px;
+    border: none;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+#todos > .todo-list-container .todo-list .button .completed{
+    background-color: #3ec282;
+    margin-right: -5px;
+}
+#todos > .todo-list-container .todo-list .button .editBtn{
+    margin-right: -5px;
+    background-color: rgb(86, 62, 193);
+}
+#todos > .todo-list-container .todo-list .button .trash{
+    background-color: #e72727;
+}
+#todos > .todo-list-container .todo-list .button button i{
+    pointer-events: none;
+}
