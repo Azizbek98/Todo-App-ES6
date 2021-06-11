@@ -25,6 +25,9 @@ addingButton.addEventListener('click', function(e){
         let editBtn = document.createElement('button');
         editBtn.classList.add('editBtn');
         editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+        editBtn.onclick = function(){
+            editWorking(liTag);
+        }
 
         let trashButton = document.createElement('button');
         trashButton.classList.add('trash');
@@ -38,5 +41,41 @@ addingButton.addEventListener('click', function(e){
         buttonDiv.appendChild(trashButton);
 
         mainTodoContainer.appendChild(ulTag);
+
+        todoList.addEventListener('click', function(e){
+            let items = e.target;
+            if(items.classList[0] === 'completed'){
+                let todo = items.parentElement;
+                let todo2 = todo.parentElement;
+                todo2.classList.add('line-through');
+            }
+            else if(items.classList[0] === 'trash'){
+                let todo = items.parentElement;
+                let todo2 = todo.parentElement;
+                let todo3 = todo2.parentElement;
+                todo3.classList.add('fall');
+                todo3.addEventListener('transitionend', function(e){
+                    todo3.remove();
+                });
+            }
+        })
+
+        input.value = '';
+    }
+    else if(input.value === ''){
+        alert("Please enter taskname at input field ...");
     }
 })
+
+function editWorking(e){
+    let editValue = prompt("Edit this taskname ...", e.firstChild.nodeValue);
+    e.firstChild.nodeValue = editValue;
+}
+
+function deleteAllElements(){
+    let gettingUlTag = document.querySelectorAll('.todo-list-container');
+    for(let i=0; i<gettingUlTag.length; i++){
+        gettingUlTag[i].remove();
+    }
+    input.value = '';
+}
