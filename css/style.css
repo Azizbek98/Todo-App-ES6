@@ -62,7 +62,8 @@ body{
     outline: none;
     border: none;
 }
-#todos > .todo-input-container > .add-item{
+#todos > .todo-input-container > .add-item,
+#todos > .todo-input-container > .deleteBtn{
     position: absolute;
     right: 0;
     top: 50%;
@@ -76,5 +77,5 @@ body{
 }
 #todos > .todo-input-container > .add-item:nth-child(2){
     right: 40px;
-    background-color: rgb(233, 153, 61);
+    background-color: rgb(153, 235, 76);
 }
