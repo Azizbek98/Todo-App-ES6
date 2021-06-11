@@ -22,17 +22,21 @@ addingButton.addEventListener('click', function(e){
         completeButton.classList.add('completed');
         completeButton.innerHTML = '<i class="fas fa-check"></i>';
         
-        let completeButton = document.createElement('button');
-        completeButton.classList.add('editBtn');
-        completeButton.innerHTML = '<i class="fas fa-edit"></i>';
+        let editBtn = document.createElement('button');
+        editBtn.classList.add('editBtn');
+        editBtn.innerHTML = '<i class="fas fa-edit"></i>';
 
-        let completeButton = document.createElement('button');
-        completeButton.classList.add('trash');
-        completeButton.innerHTML = '<i class="fas fa-trash"></i>';
+        let trashButton = document.createElement('button');
+        trashButton.classList.add('trash');
+        trashButton.innerHTML = '<i class="fas fa-trash"></i>';
 
         ulTag.appendChild(todoList);
         todoList.appendChild(liTag);
         todoList.appendChild(buttonDiv)
-        
+        buttonDiv.appendChild(completeButton);
+        buttonDiv.appendChild(editBtn);
+        buttonDiv.appendChild(trashButton);
+
+        mainTodoContainer.appendChild(ulTag);
     }
 })
