@@ -90,3 +90,8 @@ form button:hover {
 .todo-item {
   padding: 0rem 0.7rem;
 }
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
