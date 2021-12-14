@@ -48,4 +48,10 @@ function deleteCheck(event) {
     const todo = itemSelected.parentElement;
     todo.remove();
   }
+
+  // completing selected item
+  if (itemSelected.classList[0] === "complete-btn") {
+    const todo = itemSelected.parentElement;
+    todo.classList.toggle("completed"); // adding completed task to todo item
+  }
 }
