@@ -23,6 +23,9 @@ function addTodo(event) {
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo); // creating li element inside div
 
+  // adding todo to local storage
+  saveToLocalStorage(todoInput.value);
+
   // completing task button
   const completedButton = document.createElement("button");
   completedButton.innerHTML = '<i class="fas fa-check"></i>';
@@ -68,17 +71,17 @@ function filterTodo(event) {
   todos.forEach((todoTask) => {
     console.log(todoTask);
     switch (event.target.value) {
-      case "all":
+      case "all": // displays all tasks
         todoTask.style.display = "flex";
         break;
-      case "completed":
+      case "completed": // filters all completed tasks
         if (todoTask.classList.contains("completed")) {
           todoTask.style.display = "flex";
         } else {
           todoTask.style.display = "none";
         }
         break;
-      case "uncompleted":
+      case "uncompleted": // filters all uncompleted tasks
         if (!todoTask.classList.contains("completed")) {
           todoTask.style.display = "flex";
         } else {
@@ -87,4 +90,16 @@ function filterTodo(event) {
         break;
     }
   });
+}
+
+function saveToLocalStorage(todo) {
+  // check whether I have todo in my local storage or not
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
