@@ -17,9 +17,11 @@ function addTodo(event) {
 
   if (!todoInput.value) {
     alertNotify.style.display = "flex";
+    todoInput.style.border = "4px solid red";
     setInterval(() => {
       alertNotify.style.display = "none";
-    }, 4000);
+      todoInput.style.border = "none";
+    }, 2000);
   } else {
     alertNotify.style.display = "none";
 
