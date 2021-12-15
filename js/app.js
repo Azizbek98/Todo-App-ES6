@@ -1,20 +1,22 @@
-// Selectors
+/* === Selectors === */
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 const alertNotify = document.querySelector(".alert");
 
-// Event listeners
+/* === Event Listeners === */
 document.addEventListener("DOMContentLoaded", getTodos); // checking whether page was loaded or not, then run getTodos function
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("click", filterTodo);
 
-// Functions
+/* === Functions === */
+// adding todos function
 function addTodo(event) {
   event.preventDefault(); // preventing from submitting form
 
+  // checking whether todo-input value is empty or not for displaying alert
   if (!todoInput.value) {
     alertNotify.style.display = "flex";
     todoInput.style.border = "4px solid red";
@@ -58,6 +60,7 @@ function addTodo(event) {
   }
 }
 
+// deleting or completing todos
 function deleteCheck(event) {
   const itemSelected = event.target;
 
@@ -82,6 +85,7 @@ function deleteCheck(event) {
   }
 }
 
+// todos filter function
 function filterTodo(event) {
   const todos = todoList.childNodes;
   console.log(todos);
@@ -109,6 +113,7 @@ function filterTodo(event) {
   });
 }
 
+// save todos to the local storage
 function saveToLocalStorage(todo) {
   // check whether I have todo in my local storage or not
   let todos;
@@ -121,6 +126,7 @@ function saveToLocalStorage(todo) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+// display todos from local storage after updating page
 function getTodos() {
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -151,6 +157,7 @@ function getTodos() {
   });
 }
 
+// remove todos from local storage
 function removeLocalTodos(todo) {
   let todos;
   if (localStorage.getItem("todos") === null) {
