@@ -3,6 +3,7 @@ const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
+const alertNotify = document.querySelector(".alert");
 
 // Event listeners
 document.addEventListener("DOMContentLoaded", getTodos); // checking whether page was loaded or not, then run getTodos function
@@ -14,36 +15,45 @@ filterOption.addEventListener("click", filterTodo);
 function addTodo(event) {
   event.preventDefault(); // preventing from submitting form
 
-  // creating todo DIV here
-  const todoDiv = document.createElement("div");
-  todoDiv.classList.add("todo");
+  if (!todoInput.value) {
+    alertNotify.style.display = "flex";
+    setInterval(() => {
+      alertNotify.style.display = "none";
+    }, 4000);
+  } else {
+    alertNotify.style.display = "none";
 
-  // creating li here
-  const newTodo = document.createElement("li");
-  newTodo.innerText = todoInput.value;
-  newTodo.classList.add("todo-item");
-  todoDiv.appendChild(newTodo); // creating li element inside div
+    // creating todo DIV here
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
 
-  // adding todo to local storage
-  saveToLocalStorage(todoInput.value);
+    // creating li here
+    const newTodo = document.createElement("li");
+    newTodo.innerText = todoInput.value;
+    newTodo.classList.add("todo-item");
+    todoDiv.appendChild(newTodo); // creating li element inside div
 
-  // completing task button
-  const completedButton = document.createElement("button");
-  completedButton.innerHTML = '<i class="fas fa-check"></i>';
-  completedButton.classList.add("complete-btn");
-  todoDiv.appendChild(completedButton);
+    // adding todo to local storage
+    saveToLocalStorage(todoInput.value);
 
-  // removing task button
-  const removeButton = document.createElement("button");
-  removeButton.innerHTML = '<i class="fas fa-trash"></i>';
-  removeButton.classList.add("remove-btn");
-  todoDiv.appendChild(removeButton);
+    // completing task button
+    const completedButton = document.createElement("button");
+    completedButton.innerHTML = '<i class="fas fa-check"></i>';
+    completedButton.classList.add("complete-btn");
+    todoDiv.appendChild(completedButton);
 
-  // appending to todo-list
-  todoList.appendChild(todoDiv);
+    // removing task button
+    const removeButton = document.createElement("button");
+    removeButton.innerHTML = '<i class="fas fa-trash"></i>';
+    removeButton.classList.add("remove-btn");
+    todoDiv.appendChild(removeButton);
 
-  // clearing todoInput value
-  todoInput.value = "";
+    // appending to todo-list
+    todoList.appendChild(todoDiv);
+
+    // clearing todoInput value
+    todoInput.value = "";
+  }
 }
 
 function deleteCheck(event) {
