@@ -35,7 +35,7 @@ form {
 
 form input,
 form button {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 2rem;
   border: none;
   background-color: #fff;
@@ -66,7 +66,7 @@ form button:hover {
 }
 
 .todo {
-  margin: 0.5rem;
+  margin: 0.6rem;
   background-color: #fff;
   color: #000;
   font-size: 1.5rem;
@@ -110,9 +110,49 @@ form button:hover {
 .completed {
   text-decoration: line-through;
   background-color: #76eca7;
+  font-style: italic;
 }
 
 .fall {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+select {
+  font-family: "Poppins", sans-serif;
+  color: #a04ff2;
+  width: 14rem;
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  background-color: #a04ff2;
+  top: 0;
+  right: 0;
+  padding: 1.1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.select:hover::after {
+  background-color: #fff;
+  color: #a04ff2;
 }
