@@ -77,6 +77,14 @@ function filterTodo(event) {
         } else {
           todoTask.style.display = "none";
         }
+        break;
+      case "uncompleted":
+        if (!todoTask.classList.contains("completed")) {
+          todoTask.style.display = "flex";
+        } else {
+          todoTask.style.display = "none";
+        }
+        break;
     }
   });
 }
