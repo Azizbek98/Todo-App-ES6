@@ -46,7 +46,11 @@ function deleteCheck(event) {
   // deleting selected item
   if (itemSelected.classList[0] === "remove-btn") {
     const todo = itemSelected.parentElement;
-    todo.remove();
+    // animation of deleting
+    todo.classList.add("fall");
+    todo.addEventListener("transitionend", function () {
+      todo.remove();
+    });
   }
 
   // completing selected item
